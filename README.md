@@ -66,7 +66,7 @@ This command will:
 
 ## Workflow
 
-    ![Pipeline DAG](./pipeline_dag.jpg)
+![Pipeline DAG](./pipeline_dag.jpg)
 
 ## Input
 
