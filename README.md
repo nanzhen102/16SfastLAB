@@ -5,6 +5,7 @@ A reproducible, scalable pipeline for processing 16S rRNA gene sequencing data a
 ## Contents
 
 - [Introduction](#introduction)
+- [Workflow](#workflow)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Input](#input)
@@ -12,7 +13,6 @@ A reproducible, scalable pipeline for processing 16S rRNA gene sequencing data a
 - [Options](#options)
 - [Example Data](#example-data)
 - [Dependencies](#dependencies)
-- [Workflow](#workflow)
 
 ## Introduction
 
@@ -26,6 +26,9 @@ This pipeline:
 - Filters and summarizes BLAST results to generate relative abundance frequency tables.
 - Combines frequency data across samples into a single report.
 
+## Workflow
+
+![Pipeline DAG](./pipeline_dag.jpg)
 
 ## Installation
 
@@ -113,6 +116,3 @@ The `config.yaml` file controls input/output paths and parameters. Modify this f
 
 In the data/ directory (e.g., a pair of small FASTQ files named `ERR000001_1.fastq.gz` and `ERR000001_2.fastq.gz`).
 
-## Workflow
-
-![Pipeline DAG](./pipeline_dag.jpg)
