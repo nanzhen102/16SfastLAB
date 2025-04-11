@@ -8,6 +8,18 @@ A reproducible, scalable pipeline for processing 16S rRNA gene sequencing data u
 - Filters and summarizes BLAST results to generate relative abundance frequency tables.
 - Combines frequency data across samples into a single report.
 
+## Contents
+
+- [Introduction](#introduction)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Input](#input)
+- [Output](#output)
+- [Options](#options)
+- [Example Data](#example-data)
+- [Examples](#examples)
+- [Dependencies](#dependencies)
+- [Workflow](#workflow)
 
 ## Introduction
 
