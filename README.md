@@ -64,9 +64,6 @@ This command will:
 - Generate intermediate and final outputs in the results/ directory.
 - Log the execution of each rule in the logs/ directory.
 
-## Workflow
-
-![Pipeline DAG](./pipeline_dag.jpg)
 
 ## Input
 
@@ -102,3 +99,7 @@ The `config.yaml` file controls input/output paths and parameters. Modify this f
 ## Example Data
 
 In the data/ directory (e.g., a pair of small FASTQ files named `ERR000001_1.fastq.gz` and `ERR000001_2.fastq.gz`).
+
+## Workflow
+
+![Pipeline DAG](./pipeline_dag.jpg)
