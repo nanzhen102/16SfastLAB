@@ -64,6 +64,8 @@ This command will:
 - Generate intermediate and final outputs in the results/ directory.
 - Log the execution of each rule in the logs/ directory.
 
+## Workflow
+
     ![Pipeline DAG](./pipeline_dag.jpg)
 
 ## Input
