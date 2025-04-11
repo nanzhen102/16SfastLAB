@@ -1,0 +1,8 @@
+name: vsearch_env
+channels:
+  - bioconda
+  - conda-forge
+  - defaults
+dependencies:
+  - vsearch=2.15.2   
+  - python=3.12.2    

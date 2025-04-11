@@ -1,0 +1,21 @@
+# config.yaml
+
+# Directories
+data_dir: "data"
+results_dir: "results"
+logs_dir: "logs"
+scripts_dir: "scripts"
+blast_db: "LAB_16S_database/gtdb_16s_Lac"
+fna_file: "LAB_16S_database/ssu_all_r220_Lactobacillaceae.fna"
+
+# Blast settings
+blast:
+  evalue: 1e-10
+  max_target_seqs: 1
+  threads: 4
+  outfmt: 6
+
+# Filtering settings (for blastn_filter.py)
+filter:
+  identity: 97
+  alignment_length: 240
