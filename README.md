@@ -1,6 +1,6 @@
 ![Pipeline DAG](./docs/images/logo.jpg)
 
-16SfastLAB is a reproducible, scalable pipeline for processing 16S rRNA gene sequencing data and assign taxonomic information of the family Lactobacillaceae on a genus level using Snakemake and Conda.
+16SfastLAB is a reproducible and scalable pipeline for processing 16S rRNA gene amplicon sequencing data. It assigns taxonomic information at the genus level for the *Lactobacillaceae* family using Snakemake and Conda.
 
 ## Contents
 
@@ -11,12 +11,12 @@
 - [Input](#input)
 - [Output](#output)
 - [Options](#options)
-- [Example Data](#example-data)
 - [Dependencies](#dependencies)
+- [Example Data](#example-data)
 
 ## Introduction
 
-The **16SfastLAB** Pipeline is designed for bioinformatics users who need to process paired-end 16S rRNA sequencing data quickly and reproducibly. 
+The **16SfastLAB** Pipeline is designed for bioinformatics users who need to quickly understand the presence of lactic acid bacteria in paired-end 16S rRNA sequencing data. This pipeline:
 
 This pipeline:
 - Merges paired-end FASTQ files using VSEARCH.
@@ -24,7 +24,7 @@ This pipeline:
 - Runs BLASTn against a custom 16S database.
 - Extracts genus-level information from BLAST output.
 - Filters and summarizes BLAST results to generate relative abundance frequency tables.
-- Combines frequency data across samples into a single report.
+- Combines frequency data across samples into a single CSV, organized by the latest taxonomic order of *Lactobacillaceae*.
 
 ## Workflow
 
@@ -111,6 +111,12 @@ Logs for each rule are stored in the logs/ directory.
 `--cores <N>` specifies the number of cores to utilize.
 - Config File:
 The `config.yaml` file controls input/output paths and parameters. Modify this file to adjust database paths, tool parameters, or directory settings.
+
+## Dependencies
+- Snakemake
+- Conda/Mamba
+- BLAST+
+- VSEARCH
 
 ## Example Data
 
