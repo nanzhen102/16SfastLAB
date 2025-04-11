@@ -8,13 +8,11 @@ A reproducible, scalable pipeline for processing 16S rRNA gene sequencing data u
 - Filters and summarizes BLAST results to generate relative abundance frequency tables.
 - Combines frequency data across samples into a single report.
 
----
 
 ## Introduction
 
 The **16SfastLAB** Pipeline is designed for bioinformatics users who need to process paired-end 16S rRNA sequencing data quickly and reproducibly. The pipeline performs multiple steps, including read merging, conversion to FASTA, BLASTn search, and downstream analysis using custom Python scripts, all coordinated by Snakemake. The use of Conda environments and a YAML configuration file guarantees that dependencies are isolated and reproducible.
 
----
 
 ## Installation
 
