@@ -27,7 +27,7 @@ The **16SfastLAB** Pipeline is designed for bioinformatics users who need to pro
 1. **Clone the repository:**
 
 ```bash
-git clone https://github.com/yourusername/16SfastLAB.git
+git clone https://github.com/nanzhen102/16SfastLAB.git
 cd 16SfastLAB
 ```
 
