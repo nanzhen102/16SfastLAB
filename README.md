@@ -1,8 +1,6 @@
 ![Pipeline DAG](./docs/images/logo.jpg)
 
-16SfastLAB is a reproducible and scalable pipeline for processing 16S rRNA gene amplicon sequencing data. 
-
-It assigns taxonomic information at the genus level for the *Lactobacillaceae* family using Snakemake and Conda.
+16SfastLAB is a reproducible and scalable pipeline for processing 16S rRNA gene amplicon sequencing data. It assigns taxonomic information at the genus level for the *Lactobacillaceae* family using Snakemake and Conda.
 
 ## Contents
 
