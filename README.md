@@ -1,6 +1,6 @@
 ![Pipeline DAG](./docs/images/logo.jpg)
 
-16SfastLAB is a reproducible, scalable pipeline for processing 16S rRNA gene sequencing data and assign taxonomic information of the family Lactobacillaceae on a genus level using Snakemake and Conda. .
+16SfastLAB is a reproducible, scalable pipeline for processing 16S rRNA gene sequencing data and assign taxonomic information of the family Lactobacillaceae on a genus level using Snakemake and Conda.
 
 ## Contents
 
@@ -114,5 +114,5 @@ The `config.yaml` file controls input/output paths and parameters. Modify this f
 
 ## Example Data
 
-In the data/ directory (e.g., a pair of small FASTQ files named `ERR000001_1.fastq.gz` and `ERR000001_2.fastq.gz`).
+In the `data/` directory (e.g., a pair of small FASTQ files named `ERR000001_1.fastq.gz` and `ERR000001_2.fastq.gz`).
 
