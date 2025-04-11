@@ -1,12 +1,6 @@
 # 16SfastLAB
 
-A reproducible, scalable pipeline for processing 16S rRNA gene sequencing data using Snakemake and Conda. This pipeline:
-- Merges paired-end FASTQ files using VSEARCH.
-- Converts merged FASTQ files into FASTA format.
-- Runs BLASTn against a custom 16S database.
-- Extracts genus-level information from BLAST output.
-- Filters and summarizes BLAST results to generate relative abundance frequency tables.
-- Combines frequency data across samples into a single report.
+A reproducible, scalable pipeline for processing 16S rRNA gene sequencing data and assign taxonomic information of the family Lactobacillaceae on a genus level using Snakemake and Conda. 
 
 ## Contents
 
@@ -17,13 +11,20 @@ A reproducible, scalable pipeline for processing 16S rRNA gene sequencing data u
 - [Output](#output)
 - [Options](#options)
 - [Example Data](#example-data)
-- [Examples](#examples)
 - [Dependencies](#dependencies)
 - [Workflow](#workflow)
 
 ## Introduction
 
-The **16SfastLAB** Pipeline is designed for bioinformatics users who need to process paired-end 16S rRNA sequencing data quickly and reproducibly. The pipeline performs multiple steps, including read merging, conversion to FASTA, BLASTn search, and downstream analysis using custom Python scripts, all coordinated by Snakemake. The use of Conda environments and a YAML configuration file guarantees that dependencies are isolated and reproducible.
+The **16SfastLAB** Pipeline is designed for bioinformatics users who need to process paired-end 16S rRNA sequencing data quickly and reproducibly. 
+
+This pipeline:
+- Merges paired-end FASTQ files using VSEARCH.
+- Converts merged FASTQ files into FASTA format.
+- Runs BLASTn against a custom 16S database.
+- Extracts genus-level information from BLAST output.
+- Filters and summarizes BLAST results to generate relative abundance frequency tables.
+- Combines frequency data across samples into a single report.
 
 
 ## Installation
