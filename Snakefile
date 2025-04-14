@@ -3,29 +3,38 @@ configfile: "config.yaml"
 import glob
 import os
 
-samples = [os.path.basename(f).replace("_1.fastq.gz", "") for f in glob.glob(os.path.join(config["data_dir"], "ERR*_1.fastq.gz"))]
+samples = [os.path.basename(f).replace("_1.fastq.gz", "").replace("_1.fastq", "") for f in glob.glob(os.path.join(config["data_dir"], "ERR*_1.fastq*"))]
+
+def get_input_ext(sample):
+    if os.path.exists(os.path.join(config["data_dir"], f"{sample}_1.fastq.gz")):
+        return "fastq.gz"
+    elif os.path.exists(os.path.join(config["data_dir"], f"{sample}_1.fastq")):
+        return "fastq"
+    else:
+        raise ValueError(f"Missing input file for sample {sample}")
 
 rule all:
     input:
         os.path.join(config["results_dir"], "combined_genera_frequency.csv")
 
+
 rule merge_pairs:
     input:
-        fwd = os.path.join(config["data_dir"],"{sample}_1.fastq.gz"),
-        rev = os.path.join(config["data_dir"],"{sample}_2.fastq.gz")
+        fwd = lambda wildcards: os.path.join(config["data_dir"], f"{wildcards.sample}_1.{get_input_ext(wildcards.sample)}"),
+        rev = lambda wildcards: os.path.join(config["data_dir"], f"{wildcards.sample}_2.{get_input_ext(wildcards.sample)}")
     output:
-        os.path.join(config["results_dir"],"{sample}_merged.fastq")
+        os.path.join(config["results_dir"], "{sample}_merged.fastq")
     log:
-        os.path.join(config["logs_dir"],"{sample}_merge.log")
+        os.path.join(config["logs_dir"], "{sample}_merge.log")
     conda:
         "envs/vsearch.yaml"
     shell:
-        """
+        '''
         echo "Merging sample: {wildcards.sample}" > {log}
         vsearch --fastq_mergepairs {input.fwd} \
                 --reverse {input.rev} \
                 --fastqout {output} >> {log} 2>&1
-        """
+        '''
 
 rule fastq_to_fasta:
     input:
