@@ -26,8 +26,8 @@ rule merge_pairs:
         os.path.join(config["results_dir"], "{sample}_merged.fastq")
     log:
         os.path.join(config["logs_dir"], "{sample}_merge.log")
-    conda:
-        "envs/vsearch.yaml"
+    # conda:
+    #     "envs/vsearch.yaml"
     shell:
         '''
         echo "Merging sample: {wildcards.sample}" > {log}
@@ -43,8 +43,8 @@ rule fastq_to_fasta:
         os.path.join(config["results_dir"],"{sample}_merged.fasta")
     log:
         os.path.join(config["logs_dir"],"{sample}_fastq_to_fasta.log")
-    conda:
-        "envs/vsearch.yaml"
+    # conda:
+    #     "envs/vsearch.yaml"
     shell:
         """
         vsearch --fastq_filter {input} \
@@ -61,8 +61,8 @@ rule blastn:
         os.path.join(config["logs_dir"],"{sample}_blastn.log")
     threads:
         config["blast"]["threads"]
-    conda:
-        "envs/blast.yaml"
+    # conda:
+    #     "envs/blast.yaml"
     shell:
         """
         blastn -query {input} \
@@ -81,8 +81,8 @@ rule genus_match:
         os.path.join(config["results_dir"], "{sample}_genus_match.csv")
     log:
         os.path.join(config["logs_dir"], "{sample}_genus_match.log")
-    conda:
-        "envs/python_scripts.yaml"
+    # conda:
+    #     "envs/python_scripts.yaml"
     shell:
         """
         python {config[scripts_dir]}/genus_match.py {input} {config[fna_file]} {output} 2> {log}
@@ -96,8 +96,8 @@ rule blastn_filter:
         frequency = os.path.join(config["results_dir"], "{sample}_frequency.csv")
     log:
         os.path.join(config["logs_dir"], "{sample}_filter.log")
-    conda:
-        "envs/python_scripts.yaml"
+    # conda:
+    #     "envs/python_scripts.yaml"
     shell:
         """
         python {config[scripts_dir]}/blastn_filter.py {input} {output.filtered} {output.frequency} 2> {log}
@@ -119,8 +119,8 @@ rule combine_genera_frequency:
         os.path.join(config["results_dir"], "combined_genera_frequency.csv")
     log:
         os.path.join(config["logs_dir"], "combined_genera_frequency.log")
-    conda:
-        "envs/python_scripts.yaml"
+    # conda:
+    #     "envs/python_scripts.yaml"
     shell:
         """
         python {config[scripts_dir]}/combine_genera_frequency.py {config[results_dir]} {output} 2> {log}

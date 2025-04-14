@@ -46,31 +46,24 @@ This pipeline:
 git clone https://github.com/nanzhen102/16SfastLAB.git
 cd 16SfastLAB
 ```
+2.	**Create Conda Environments:**
 
-2.	**Configure Conda channels:**
+     **Manual Installation**
 
-Set strict channel priority for robust environments:
+    Please install the following manually before running the pipeline:
 
-```bash
-conda config --set channel_priority strict
-```
-
-3.	**Create Conda Environments:**
-
-Your repository includes separate environment files inside the envs/ directory:
-
-- envs/blast.yaml: For running BLASTn.
-- envs/vsearch.yaml: For VSEARCH.
-- envs/python_scripts.yaml: For Python scripts (e.g., genus extraction, filtering, and combining frequency data).
-
-Snakemake will automatically create these environments when you run the pipeline using --use-conda.
+    - vsearch (≥2.15)
+    - blastn
+    - Python 3 (≥3.8) with packages:
+        - biopython
+        - pandas
 
 ## Usage
 
 From the main project directory, execute the pipeline with:
 
 ```bash
-snakemake --cores 4 --use-conda
+snakemake --cores 4 
 ```
 
 This command will:
