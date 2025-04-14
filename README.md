@@ -46,9 +46,7 @@ This pipeline:
 git clone https://github.com/nanzhen102/16SfastLAB.git
 cd 16SfastLAB
 ```
-2.	**Create Conda Environments:**
-
-     **Manual Installation**
+2.	**Create Conda Environments:** 
 
     Please install the following manually before running the pipeline:
 
