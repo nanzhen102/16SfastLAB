@@ -13,6 +13,7 @@
 - [Options](#options)
 - [Dependencies](#dependencies)
 - [Example Data](#example-data)
+- [Tips 🐯](#tips-)
 
 ## Introduction
 
@@ -41,10 +42,10 @@ This pipeline:
 
 1. **Clone the repository:**
 
-```bash
-git clone https://github.com/nanzhen102/16SfastLAB.git
-cd 16SfastLAB
-```
+    ```bash
+    git clone https://github.com/nanzhen102/16SfastLAB.git
+    cd 16SfastLAB
+    ```
 2.	**Create Conda Environments:**
 
     Please install the following manually before running the pipeline:
@@ -54,13 +55,17 @@ cd 16SfastLAB
     - Python 3 (≥3.8) with packages:
         - biopython
         - pandas
+    ```bash
+    conda install bioconda::vsearch # install vsearch (then blastn will be installed at the same time)
+    mamba install -c conda-forge -c bioconda biopython # install biopython
+    ```
 
 ## Usage
 
 From the main project directory, execute the pipeline with:
 
 ```bash
-snakemake --cores 4 
+snakemake --cores 8 
 ```
 
 This command will:
@@ -112,3 +117,15 @@ The `config.yaml` file controls input/output paths and parameters. Modify this f
 
 In the `data/` directory.
 
+## Tips 🐯
+
+To download SRR files from NCBI SRA database:
+```bash
+fasterq-dump SRR24916211 --split-files --gzip -O data/
+```
+Or
+```bash
+tail -n +2 SraAccList.csv | while read srr; do
+  fasterq-dump "$srr" --split-files -O data/
+done
+```
