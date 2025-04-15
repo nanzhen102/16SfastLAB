@@ -36,7 +36,6 @@ This pipeline:
 
 - **Conda/Mamba:** Ensure you have [Miniconda](https://docs.conda.io/en/latest/miniconda.html) installed. (Using [Mamba](https://mamba.readthedocs.io/en/latest/) for faster environment resolution is recommended.)
 - **Git:** To clone the repository.
-- **Graphviz:** (Optional) For generating DAG visualizations.
 
 ### Steps
 
@@ -47,8 +46,6 @@ git clone https://github.com/nanzhen102/16SfastLAB.git
 cd 16SfastLAB
 ```
 2.	**Create Conda Environments:**
-
-     **Manual Installation**
 
     Please install the following manually before running the pipeline:
 
@@ -78,20 +75,20 @@ This command will:
 
 **Data Files**
 
-- The pipeline expects paired-end FASTQ files to be stored in the data/ directory.
-- File naming convention: `ERRxxxxxx_1.fastq.gz` and `ERRxxxxxx_2.fastq.gz`
+- The pipeline expects paired-end FASTQ files to be stored in the `data/` directory.
+- File naming convention: `ERRxxxxxx_1.fastq.gz` and `ERRxxxxxx_2.fastq.gz`, or `SRRxxxxxx_1.fastq.gz` and `SRRxxxxxx_2.fastq.gz`, or `ERRxxxxxx_1.fastq` and `ERRxxxxxx_2.fastq`, or `SRRxxxxxx_1.fastq` and `SRRxxxxxx_2.fastq`.
 - A configuration file `config.yaml` is used to specify directory paths, database locations, and tool parameters.
 
 ## Output
 
 After running the pipeline, the results/ directory will contain:
 
-- Merged FASTQ Files: e.g., `ERRxxxxxx_merged.fastq`
-- FASTA Files: e.g., `ERRxxxxxx_merged.fasta`
-- BLASTn Output Files: e.g., `ERRxxxxxx_blastn_ssu_r220_LAB.out`
-- Genus Match Files: e.g., `ERRxxxxxx_genus_match.csv`
-- Filtered Results: e.g., `ERRxxxxxx_filtered.csv`
-- Frequency Tables: e.g., `ERRxxxxxx_frequency.csv`
+- Merged FASTQ Files: e.g., `xxxxxx_merged.fastq`
+- FASTA Files: e.g., `xxxxxx_merged.fasta`
+- BLASTn Output Files: e.g., `xxxxxx_blastn_ssu_r220_LAB.out`
+- Genus Match Files: e.g., `xxxxxx_genus_match.csv`
+- Filtered Results: e.g., `xxxxxx_filtered.csv`
+- Frequency Tables: e.g., `xxxxxx_frequency.csv`
 - Combined Frequency Table: `combined_genera_frequency.csv`
 
 Logs for each rule are stored in the logs/ directory.
@@ -113,5 +110,5 @@ The `config.yaml` file controls input/output paths and parameters. Modify this f
 
 ## Example Data
 
-In the `data/` directory (e.g., a pair of small FASTQ files named `ERR000001_1.fastq.gz` and `ERR000001_2.fastq.gz`).
+In the `data/` directory.
 
