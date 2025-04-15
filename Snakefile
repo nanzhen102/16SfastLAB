@@ -3,7 +3,7 @@ configfile: "config.yaml"
 import glob
 import os
 
-samples = [os.path.basename(f).replace("_1.fastq.gz", "").replace("_1.fastq", "") for f in glob.glob(os.path.join(config["data_dir"], "ERR*_1.fastq*"))]
+samples = [os.path.basename(f).replace("_1.fastq.gz", "").replace("_1.fastq", "") for f in glob.glob(os.path.join(config["data_dir"], "*_1.fastq*")) if os.path.basename(f).startswith(("ERR", "SRR"))]
 
 def get_input_ext(sample):
     if os.path.exists(os.path.join(config["data_dir"], f"{sample}_1.fastq.gz")):
