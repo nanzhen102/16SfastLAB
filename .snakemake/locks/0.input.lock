@@ -1,0 +1,7 @@
+results/combined_genera_frequency.csv
+results/flag.txt
+results/SRR28092360_frequency.csv
+results/SRR28092360_genus_match.csv
+results/SRR28092360_blastn_ssu_r220_LAB.out
+results/SRR28092360_merged.fasta
+data/SRR28092360.fastq

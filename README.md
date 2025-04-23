@@ -80,7 +80,7 @@ This command will:
 
 **Data Files**
 
-- The pipeline expects paired-end FASTQ files to be stored in the `data/` directory.
+- The pipeline expects both **paired-end** and **single-end** FASTQ files to be stored in the `data/` directory.
 - File naming convention: `ERRxxxxxx_1.fastq.gz` and `ERRxxxxxx_2.fastq.gz`, or `SRRxxxxxx_1.fastq.gz` and `SRRxxxxxx_2.fastq.gz`, or `ERRxxxxxx_1.fastq` and `ERRxxxxxx_2.fastq`, or `SRRxxxxxx_1.fastq` and `SRRxxxxxx_2.fastq`.
 - A configuration file `config.yaml` is used to specify directory paths, database locations, and tool parameters.
 
