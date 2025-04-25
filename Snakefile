@@ -70,6 +70,7 @@ rule fastq_to_fasta_single:
     shell:
         """
         vsearch --fastq_filter {input} \
+        --fastq_qmax 42 \
         --fastaout {output} \
         --fasta_width 0 >> {log} 2>&1
         """
