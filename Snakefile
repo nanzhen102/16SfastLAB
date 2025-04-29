@@ -4,7 +4,9 @@ import glob
 import os
 
 samples = sorted(set(
-    os.path.basename(f).split("_")[0] if "_" in os.path.basename(f) else os.path.basename(f).replace(".fastq", "")
+    os.path.basename(f)
+    .replace("_trimmed.fastq", "")
+    .replace(".fastq", "")
     for f in glob.glob(os.path.join(config["data_dir"], "*.fastq*"))
     if os.path.basename(f).startswith(("ERR", "SRR"))
 ))
@@ -13,6 +15,26 @@ samples = sorted(set(
 def is_paired(sample):
     return os.path.exists(os.path.join(config["data_dir"], f"{sample}_2.fastq")) or \
     os.path.exists(os.path.join(config["data_dir"], f"{sample}_2.fastq.gz"))
+
+# helper to get correct FASTQ file for single-end input
+def get_input_file(sample):
+    trimmed = os.path.join(config["data_dir"], f"{sample}_trimmed.fastq")
+    raw = os.path.join(config["data_dir"], f"{sample}.fastq")
+    if os.path.exists(trimmed):
+        return trimmed
+    elif os.path.exists(raw):
+        return raw
+    else:
+        raise ValueError(f"Missing FASTQ file for sample: {sample}")
+
+# helper to get extension for paired-end reads
+def get_input_ext(sample):
+    if os.path.exists(os.path.join(config["data_dir"], f"{sample}_1.fastq.gz")):
+        return "fastq.gz"
+    elif os.path.exists(os.path.join(config["data_dir"], f"{sample}_1.fastq")):
+        return "fastq"
+    else:
+        raise ValueError(f"Missing paired-end file for sample: {sample}")
 
 # split samples
 paired_samples = [s for s in samples if is_paired(s)]
@@ -60,7 +82,7 @@ rule fastq_to_fasta_paired:
 # ---------- single-end rule -------------
 rule fastq_to_fasta_single:
     input:
-        lambda wc: os.path.join(config["data_dir"], f"{wc.sample}.fastq")
+        lambda wc: get_input_file(wc.sample)
     output:
         os.path.join(config["results_dir"],"{sample}_merged.fasta")
     log:

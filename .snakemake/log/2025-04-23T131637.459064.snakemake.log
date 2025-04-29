@@ -1,0 +1,46 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 8
+Rules claiming more threads will be scaled down.
+Job stats:
+job                         count
+------------------------  -------
+all                             1
+blastn                          1
+blastn_filter                   1
+combine_genera_frequency        1
+fastq_to_fasta_single           1
+flag                            1
+genus_match                     1
+total                           7
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Apr 23 13:16:37 2025]
+localrule fastq_to_fasta_single:
+    input: data/SRR28092360.fastq
+    output: results/SRR28092360_merged.fasta
+    log: logs/SRR28092360_fastq_to_fasta_single.log
+    jobid: 6
+    reason: Missing output files: results/SRR28092360_merged.fasta
+    wildcards: sample=SRR28092360
+    resources: tmpdir=/var/folders/fg/wx4t3r3d4jbblkfl6mr9xy4w0000gn/T
+
+[Wed Apr 23 13:16:38 2025]
+Finished job 6.
+1 of 7 steps (14%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Apr 23 13:16:38 2025]
+localrule blastn:
+    input: results/SRR28092360_merged.fasta
+    output: results/SRR28092360_blastn_ssu_r220_LAB.out
+    log: logs/SRR28092360_blastn.log
+    jobid: 5
+    reason: Missing output files: results/SRR28092360_blastn_ssu_r220_LAB.out; Input files updated by another job: results/SRR28092360_merged.fasta
+    wildcards: sample=SRR28092360
+    threads: 4
+    resources: tmpdir=/var/folders/fg/wx4t3r3d4jbblkfl6mr9xy4w0000gn/T
+
