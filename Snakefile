@@ -3,18 +3,17 @@ configfile: "config.yaml"
 import glob
 import os
 
-samples = sorted(set(
-    os.path.basename(f)
-    .replace("_trimmed.fastq", "")
-    .replace(".fastq", "")
+# strip off any "_1", "_2", "_trimmed", ".fastq" or ".fastq.gz" suffix
+samples = sorted({
+    os.path.basename(f).split("_")[0]
     for f in glob.glob(os.path.join(config["data_dir"], "*.fastq*"))
-    if os.path.basename(f).startswith(("ERR", "SRR"))
-))
+    if os.path.basename(f).startswith(("ERR","SRR"))
+})
 
 # detect if a sample is paired-end
 def is_paired(sample):
-    return os.path.exists(os.path.join(config["data_dir"], f"{sample}_2.fastq")) or \
-    os.path.exists(os.path.join(config["data_dir"], f"{sample}_2.fastq.gz"))
+    return any(os.path.exists(os.path.join(config["data_dir"], f"{sample}_{i}.fastq")) for i in (1,2)) \
+       or any(os.path.exists(os.path.join(config["data_dir"], f"{sample}_{i}.fastq.gz")) for i in (1,2))
 
 # helper to get correct FASTQ file for single-end input
 def get_input_file(sample):
