@@ -4,7 +4,7 @@ import glob
 import os
 # import re
 
-strip off any "_1", "_2", "_trimmed", ".fastq" or ".fastq.gz" suffix
+# strip off any "_1", "_2", "_trimmed", ".fastq" or ".fastq.gz" suffix
 samples = sorted({
     os.path.basename(f).split("_")[0]
     for f in glob.glob(os.path.join(config["data_dir"], "*.fastq*"))
