@@ -2,13 +2,20 @@ configfile: "config.yaml"
 
 import glob
 import os
+import re
 
 # strip off any "_1", "_2", "_trimmed", ".fastq" or ".fastq.gz" suffix
-samples = sorted({
-    os.path.basename(f).split("_")[0]
+# samples = sorted({
+#     os.path.basename(f).split("_")[0]
+#     for f in glob.glob(os.path.join(config["data_dir"], "*.fastq*"))
+#     if os.path.basename(f).startswith(("ERR","SRR"))
+# })
+
+samples = sorted(set(
+    re.sub(r'(_trimmed)?(_[12])?(\.fastq(\.gz)?)$', '', os.path.basename(f))
     for f in glob.glob(os.path.join(config["data_dir"], "*.fastq*"))
-    if os.path.basename(f).startswith(("ERR","SRR"))
-})
+    if os.path.basename(f).startswith(("ERR", "SRR"))
+))
 
 # detect if a sample is paired-end
 def is_paired(sample):
