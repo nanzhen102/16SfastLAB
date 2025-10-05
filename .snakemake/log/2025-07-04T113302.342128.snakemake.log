@@ -1,0 +1,18 @@
+Building DAG of jobs...
+WorkflowError:
+InputFunctionException (rule merge_pairs, line 62, /Users/nanzhen/Documents/GitHub/16SfastLAB/Snakefile):
+    Error:
+      ValueError: Missing paired-end file for sample: SRR8gG14
+    Wildcards:
+      sample=SRR8gG14
+    Traceback:
+      File "/Users/nanzhen/Documents/GitHub/16SfastLAB/Snakefile", line 56, in <lambda>
+      File "/Users/nanzhen/Documents/GitHub/16SfastLAB/Snakefile", line 43, in get_input_ext (rule merge_pairs, line 62, /Users/nanzhen/Documents/GitHub/16SfastLAB/Snakefile)
+InputFunctionException (rule merge_pairs, line 62, /Users/nanzhen/Documents/GitHub/16SfastLAB/Snakefile):
+    Error:
+      ValueError: Missing paired-end file for sample: combined_genera
+    Wildcards:
+      sample=combined_genera
+    Traceback:
+      File "/Users/nanzhen/Documents/GitHub/16SfastLAB/Snakefile", line 56, in <lambda>
+      File "/Users/nanzhen/Documents/GitHub/16SfastLAB/Snakefile", line 43, in get_input_ext (rule merge_pairs, line 62, /Users/nanzhen/Documents/GitHub/16SfastLAB/Snakefile)

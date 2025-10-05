@@ -1,0 +1,98 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 8
+Rules claiming more threads will be scaled down.
+Job stats:
+job                         count
+------------------------  -------
+all                             1
+blastn                          3
+blastn_filter                   3
+combine_genera_frequency        1
+fastq_to_fasta_single           3
+flag                            1
+genus_match                     3
+total                          15
+
+Select jobs to execute...
+Execute 3 jobs...
+
+[Fri Jul  4 11:35:50 2025]
+localrule fastq_to_fasta_single:
+    input: data/SRR8gG16_trimmed.fastq
+    output: results/SRR8gG16_merged.fasta
+    log: logs/SRR8gG16_fastq_to_fasta_single.log
+    jobid: 14
+    reason: Missing output files: results/SRR8gG16_merged.fasta
+    wildcards: sample=SRR8gG16
+    resources: tmpdir=/var/folders/fg/wx4t3r3d4jbblkfl6mr9xy4w0000gn/T
+
+
+[Fri Jul  4 11:35:50 2025]
+localrule fastq_to_fasta_single:
+    input: data/SRR8gG14_trimmed.fastq
+    output: results/SRR8gG14_merged.fasta
+    log: logs/SRR8gG14_fastq_to_fasta_single.log
+    jobid: 6
+    reason: Missing output files: results/SRR8gG14_merged.fasta
+    wildcards: sample=SRR8gG14
+    resources: tmpdir=/var/folders/fg/wx4t3r3d4jbblkfl6mr9xy4w0000gn/T
+
+
+[Fri Jul  4 11:35:50 2025]
+localrule fastq_to_fasta_single:
+    input: data/SRR8gG15_trimmed.fastq
+    output: results/SRR8gG15_merged.fasta
+    log: logs/SRR8gG15_fastq_to_fasta_single.log
+    jobid: 10
+    reason: Missing output files: results/SRR8gG15_merged.fasta
+    wildcards: sample=SRR8gG15
+    resources: tmpdir=/var/folders/fg/wx4t3r3d4jbblkfl6mr9xy4w0000gn/T
+
+[Fri Jul  4 11:35:50 2025]
+Error in rule fastq_to_fasta_single:
+    jobid: 6
+    input: data/SRR8gG14_trimmed.fastq
+    output: results/SRR8gG14_merged.fasta
+    log: logs/SRR8gG14_fastq_to_fasta_single.log (check log file(s) for error details)
+    shell:
+        
+        vsearch --fastq_filter data/SRR8gG14_trimmed.fastq         --fastq_qmax 42         --fastaout results/SRR8gG14_merged.fasta         --fasta_width 0 >> logs/SRR8gG14_fastq_to_fasta_single.log 2>&1
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Fri Jul  4 11:35:50 2025]
+[Fri Jul  4 11:35:50 2025]
+Error in rule fastq_to_fasta_single:
+    jobid: 10
+    input: data/SRR8gG15_trimmed.fastq
+    output: results/SRR8gG15_merged.fasta
+    log: logs/SRR8gG15_fastq_to_fasta_single.log (check log file(s) for error details)
+    shell:
+        
+        vsearch --fastq_filter data/SRR8gG15_trimmed.fastq         --fastq_qmax 42         --fastaout results/SRR8gG15_merged.fasta         --fasta_width 0 >> logs/SRR8gG15_fastq_to_fasta_single.log 2>&1
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Error in rule fastq_to_fasta_single:
+    jobid: 14
+    input: data/SRR8gG16_trimmed.fastq
+    output: results/SRR8gG16_merged.fasta
+    log: logs/SRR8gG16_fastq_to_fasta_single.log (check log file(s) for error details)
+    shell:
+        
+        vsearch --fastq_filter data/SRR8gG16_trimmed.fastq         --fastq_qmax 42         --fastaout results/SRR8gG16_merged.fasta         --fasta_width 0 >> logs/SRR8gG16_fastq_to_fasta_single.log 2>&1
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Removing output files of failed job fastq_to_fasta_single since they might be corrupted:
+results/SRR8gG14_merged.fasta
+Removing output files of failed job fastq_to_fasta_single since they might be corrupted:
+results/SRR8gG15_merged.fasta
+Removing output files of failed job fastq_to_fasta_single since they might be corrupted:
+results/SRR8gG16_merged.fasta
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2025-07-04T113544.342331.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.
